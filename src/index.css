@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-ink-50 font-sans text-ink-900 antialiased; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand-500; }
+}
+@layer components {
+  .input { @apply w-full rounded-2xl border border-ink-100 bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400 transition focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-100; }
+  .btn-primary { @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-soft transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-500/30 active:translate-y-0 active:scale-[.98]; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-full border border-brand-600 px-4 py-1.5 text-xs font-semibold text-brand-700 transition hover:bg-brand-600 hover:text-white; }
+}
+
+/* Staggered entrance: children of each page's root, plus cards inside top-level grids */
+.stagger-deep > * > *:not(.grid), .stagger-deep > * > .grid > * { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
+.stagger-deep > * > .grid { animation: none; }
+.stagger-deep > * > :nth-child(1), .stagger-deep > * > .grid > :nth-child(1) { animation-delay: 70ms; }
+.stagger-deep > * > :nth-child(2), .stagger-deep > * > .grid > :nth-child(2) { animation-delay: 140ms; }
+.stagger-deep > * > :nth-child(3), .stagger-deep > * > .grid > :nth-child(3) { animation-delay: 210ms; }
+.stagger-deep > * > :nth-child(4), .stagger-deep > * > .grid > :nth-child(4) { animation-delay: 280ms; }
+.stagger-deep > * > :nth-child(5), .stagger-deep > * > .grid > :nth-child(5) { animation-delay: 350ms; }
+.stagger-deep > * > :nth-child(6), .stagger-deep > * > .grid > :nth-child(6) { animation-delay: 420ms; }
+.stagger-deep > * > :nth-child(7), .stagger-deep > * > .grid > :nth-child(7) { animation-delay: 490ms; }
+.stagger-deep > * > :nth-child(8), .stagger-deep > * > .grid > :nth-child(8) { animation-delay: 560ms; }
+
+.row-stagger > tr { animation: rise .45s cubic-bezier(.2,.7,.2,1) both; }
+.row-stagger > tr:nth-child(1) { animation-delay: 165ms; }
+.row-stagger > tr:nth-child(2) { animation-delay: 210ms; }
+.row-stagger > tr:nth-child(3) { animation-delay: 255ms; }
+.row-stagger > tr:nth-child(4) { animation-delay: 300ms; }
+.row-stagger > tr:nth-child(5) { animation-delay: 345ms; }
+.row-stagger > tr:nth-child(6) { animation-delay: 390ms; }
+.row-stagger > tr:nth-child(7) { animation-delay: 435ms; }
+.row-stagger > tr:nth-child(8) { animation-delay: 480ms; }
+.row-stagger > tr:nth-child(9) { animation-delay: 525ms; }
+.row-stagger > tr:nth-child(10) { animation-delay: 570ms; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
